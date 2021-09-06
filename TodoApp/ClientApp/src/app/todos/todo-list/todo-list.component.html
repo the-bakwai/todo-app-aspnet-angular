@@ -1,0 +1,24 @@
+<h1>Todo List</h1>
+<a routerLink="/todos/new">New Todo</a>
+<table>
+  <thead>
+  <tr>
+    <th>Description</th>
+    <th>Date Created</th>
+    <th>Done?</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let t of todos">
+  <tr>
+    <td>{{t.description}}</td>
+    <td>{{t.dateCreated | date:'yyyy/MM/dd'}}</td>
+    <td>{{t.done}}</td>
+    <td><a [routerLink]="['todos', t.id]">Edit</a> | <input type="button" (click)="toggleDone(t.id)"
+                                                            [value]="t.done ? 'Undo' : 'Done'"> | <input type="button"
+                                                                                                         (click)="delete(t.id)"
+                                                                                                         value="Delete">
+    </td>
+  </tr>
+  </tbody>
+</table>

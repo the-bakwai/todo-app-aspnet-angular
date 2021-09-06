@@ -1,0 +1,16 @@
+<h1>Updated Todo</h1>
+
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="description">Description</label>
+    <input type="text" id="description" name="description" formControlName="description">
+  </div>
+  <div>
+    <input id="done" name="done" type="checkbox" formControlName="done">
+    <label for="done">Done?</label>
+  </div>
+  <div>
+    <button type="submit" [disabled]="!todoForm.valid">Update</button> |
+    <a routerLink="/todos">Back</a>
+  </div>
+</form>
